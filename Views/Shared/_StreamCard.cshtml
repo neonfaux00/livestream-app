@@ -1,0 +1,2 @@
+@model LivestreamApp.Models.StreamModel
+<article class="stream-card"><a asp-controller="Streams" asp-action="Watch" asp-route-id="@Model.Id"><div class="thumbnail"><img src="@Model.ThumbnailUrl" alt="@Model.Title"><span class="live-badge">@(Model.IsLive ? "● LIVE" : "REPLAY")</span></div><div class="stream-info"><h3>@Model.Title</h3><p>@Model.Creator</p><small>@Model.Category <span>·</span> @Model.Viewers.ToString("N0") viewers</small></div></a></article>

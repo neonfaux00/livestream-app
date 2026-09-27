@@ -1,0 +1,8 @@
+@model IEnumerable<LivestreamApp.Models.StreamModel>
+@{ ViewData["Title"] = "Home"; }
+<section class="hero">
+  <div class="hero-copy"><span class="eyebrow"><span class="pulse"></span> LIVE STREAMING</span><h1>Find your next <em>favorite</em> moment.</h1><p>Watch live events, discover new creators, and connect with communities that share your passions.</p><div class="hero-actions"><a class="button primary" asp-controller="Streams" asp-action="Index">Explore streams <span>→</span></a><a class="button ghost" href="#categories">Browse categories</a></div></div>
+  <div class="hero-art"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="hero-card"><span class="live-badge">● LIVE</span><strong>THE MAIN EVENT</strong><small>12.4K watching now</small></div></div>
+</section>
+<section class="section" id="categories"><div class="section-title"><div><span class="eyebrow">DISCOVER</span><h2>What's happening now</h2></div><a class="text-link" asp-controller="Streams" asp-action="Index">View all →</a></div><div class="stream-grid">@foreach (var stream in Model) { <partial name="_StreamCard" model="stream" /> }</div></section>
+<section class="category-row"><a href="/Streams?category=Gaming">🎮 <span>Gaming</span></a><a href="/Streams?category=Music">🎵 <span>Music</span></a><a href="/Streams?category=Sports">⚡ <span>Sports</span></a><a href="/Streams?category=Creative">🎨 <span>Creative</span></a><a href="/Streams?category=Esports">🏆 <span>Esports</span></a></section>
